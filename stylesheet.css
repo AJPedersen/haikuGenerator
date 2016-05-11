@@ -1,0 +1,78 @@
+body {
+	background-color: rgba(182, 198, 183, 1);
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+h1 {
+	text-align: center;
+	font-size: 3em;
+}
+
+p {
+	text-align: center;
+	color: black;
+	font-size: 1.1em;
+}
+
+hr {
+	display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.inputbox {
+	height: 40px;
+	width: 300px;
+	line-height: 10px;
+	font-size: 18px;
+	text-indent: 2px;
+	display: block;
+	margin: 0 auto 6px;
+	background: rgba(0, 70, 5, 1);
+	border: 3px solid rgba(104, 166, 108,1);
+	transition: .1s linear 0s;
+	color: white;
+}
+
+.inputbox:hover {
+	outline: 4px solid rgba(4, 102, 10,1);
+}
+.inputbox:focus, .inputbox:active {
+	outline: 4px solid rgba(4, 102, 10,1);
+}
+
+.radio {
+	width: 15%;
+	margin: auto;
+	text-align: left;
+	font-size: 1.2em;
+	line-height: 30px;
+}
+
+.submit {
+	height: 150px;
+	width: 150px;
+	color: white;
+	outline: none;
+	border: 4px solid rgba(104, 166, 108,1);
+	border-radius: 50%;
+	font-size: 1em;
+	display: block;
+	margin: 0 auto;
+	background: rgba(0, 70, 5,1);
+}
+
+.submit:hover {
+	background: rgba(104, 166, 108,1);
+
+}
+
+.story {
+  	font-size: 1.5em;
+  	color: white;
+  }
