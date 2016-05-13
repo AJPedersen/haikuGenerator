@@ -1,30 +1,53 @@
 
- var pronouns = [ "Everything", "Everybody", "Nothing", "Someone" ];
+var oneSyl = [ "Everything", "Everybody", "Nothing", "Someone" ];
+var twoSyl = [ "Orange", "Rough", "Smooth", "Awesome" ];
+var threeSyl = [ "Runs", "Touches", "Eats", "Spins" ];
+var fourSyl = [ "Good", "New", "Different", "Young" ];
+var fiveSyl = [ "Good", "New", "Different", "Young" ];
  
- var pronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+var oneSylRan = shuffle(oneSyl);
+var twoSylRan = shuffle(twoSyl);
+var threeSylRan = shuffle(threeSyl);
+var fourSylRan = shuffle(fourSyl);
+var fiveSylRan = shuffle(fiveSyl);
 
-		function insertInput() {
-		 	document.getElementById("pronoun").innerHTML = pronoun;
-	} 
+function shuffleSylBank() {
+document.getElementByClassName("oneSyl").innerHTML = oneSylRan;
+document.getElementByClassName("twoSyl").innerHTML = twoSylRan;
+document.getElementByClassName("threeSyl").innerHTML = threeSylRan;
+document.getElementByClassName("fourSyl").innerHTML = fourSylRan;
+document.getElementByClassName("fiveSyl").innerHTML = fiveSylRan;
 
+return shuffleSylBank;
+}
 
-		document.onreadystatechange = function stopRefresh (event){
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i -= 1) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}
 
-		var listener = document.querySelector('form')
-		listener.addEventListener("submit", checkInput);
+/*User Input*/
 
-	}
+function cleanInput(id){
+	var input = document.getElementById(id);
+	var noCommas = input.replace( /,/g , ' ' );
+	var noDSpace = noCommas.replace( /\s\s+/g, ' ' );
+	var inputArray = noDSpace.split(" ");
 
-	function checkInput (event){ 
+	return inputArray;
+}
 
-		event.preventDefault();
+function userOutput(id){
+	var userOutput = cleanInput(id);
+	shuffle(userOutput);
+	return userOutput; 
+}
 
-		var formData = new FormData(document.querySelector('form'));
-		formData.entries().forEach(function(value, key){
-			
-		});
-		console.log(formData);
-};
 
 /*
 

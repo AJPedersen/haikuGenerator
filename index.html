@@ -6,21 +6,23 @@
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body onload="insertInput();">
+<body onload="shuffleSylInput();">
 	<h1>Haikurazy generator</h1>
 <p>Like haiku? Generate one here! </p>
 
 <form>
 
-<input class = "inputbox" type = "text" name = "nouns" placeholder = "nouns go here!"><br>
+<input class="inputbox" id="oneSyl" type="text" name="nouns" placeholder="one syllable words here!"><br>
 
-<input class = "inputbox" type = "text" name = "adjectives" placeholder = "adjectives go here!"><br>
+<input class="inputbox" id="twoSyl" type="text" name="adjectives" placeholder="two syllable words here!"><br>
 
-<input class = "inputbox" type = "text" name = "pronouns" placeholder = "pronouns go here!"><br>
+<input class="inputbox" id="threeSyl" type="text" name="pronouns" placeholder="three syllable words here!"><br>
 
-<input class = "inputbox" type = "text" name = "verbs" placeholder = "verbs go here!"><br>
+<input class = "inputbox" id="fourSyl" type = "text" name = "verbs" placeholder = "four syllable words here!"><br>
 
-<input class = "submit" type = "submit" name = "submit" value = "GO HAIKURAZY!"><br>
+<input class = "inputbox" id="fiveSyl" type = "text" name = "verbs" placeholder = "five syllable words here!"><br>
+
+<input class = "submit" type ="button" onclick="insertInput()" value = "GO HAIKURAZY!"><br>
 
 </form>
 
@@ -28,11 +30,11 @@
 
 <p>
 
-<span id = "pronoun"></span> I touch
+<span class = "threeSylOut"></span> I <span class = "oneSylOut"></span>
 <br>
-with tenderness, alas,
+with <span class = "threeSylOut"></span>, alas,
 <br>
-pricks like a bramble.
+<span class = "oneSylOut"></span> like a <span class = "twoSylOut"></span>.
 <br>
 </p>
 <!-- 
