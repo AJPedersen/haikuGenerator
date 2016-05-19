@@ -6,36 +6,30 @@
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body onload="shuffleSylInput();">
+<body onload="shuffleSylBank();">
 	<h1>Haikurazy generator</h1>
 <p>Like haiku? Generate one here! </p>
 
 <form>
 
-<input class="inputbox" id="oneSyl" type="text" name="nouns" placeholder="one syllable words here!"><br>
+<input class="inputbox" id="1syl" type="text" name="nouns" placeholder="one syllable words here!">
 
-<input class="inputbox" id="twoSyl" type="text" name="adjectives" placeholder="two syllable words here!"><br>
+<input class="inputbox" id="2syl" type="text" name="adjectives" placeholder="two syllable words here!">
 
-<input class="inputbox" id="threeSyl" type="text" name="pronouns" placeholder="three syllable words here!"><br>
+<input class="inputbox" id="3syl" type="text" name="pronouns" placeholder="three syllable words here!">
 
-<input class = "inputbox" id="fourSyl" type = "text" name = "verbs" placeholder = "four syllable words here!"><br>
+<input class = "inputbox" id="4syl" type = "text" name = "verbs" placeholder = "four syllable words here!">
 
-<input class = "inputbox" id="fiveSyl" type = "text" name = "verbs" placeholder = "five syllable words here!"><br>
+<input class = "inputbox" id="5syl" type = "text" name = "verbs" placeholder = "five syllable words here!">
 
-<input class = "submit" type ="button" onclick="insertInput()" value = "GO HAIKURAZY!"><br>
+<input class = "submit" type ="button" onclick="shuffleSylBank()" value = "GO HAIKURAZY!">
 
 </form>
 
-<hr>
-
-<p>
-
+<p id="haiku">
 <span class = "threeSylOut"></span> I <span class = "oneSylOut"></span>
-<br>
 with <span class = "threeSylOut"></span>, alas,
-<br>
 <span class = "oneSylOut"></span> like a <span class = "twoSylOut"></span>.
-<br>
 </p>
 <!-- 
 <p>

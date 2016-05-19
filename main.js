@@ -11,14 +11,19 @@ var threeSylRan = shuffle(threeSyl);
 var fourSylRan = shuffle(fourSyl);
 var fiveSylRan = shuffle(fiveSyl);
 
+shuffler = shuffleSylBank("onesyl", "twosyl", "threesyl", "foursyl", "fivesyl");
+
 function shuffleSylBank() {
-document.getElementByClassName("oneSyl").innerHTML = oneSylRan;
-document.getElementByClassName("twoSyl").innerHTML = twoSylRan;
-document.getElementByClassName("threeSyl").innerHTML = threeSylRan;
-document.getElementByClassName("fourSyl").innerHTML = fourSylRan;
-document.getElementByClassName("fiveSyl").innerHTML = fiveSylRan;
+	var i;
+document.getElementById(i).innerHTML = shuffle(i);
 
 return shuffleSylBank;
+};
+
+function shuffleSylBank(sylArr){
+    for(var i = 0; i < sylArr.length; i++){
+        document.getElementById(i).innerHTML = shuffle(i);
+    }
 }
 
 function shuffle(a) {
@@ -29,7 +34,7 @@ function shuffle(a) {
         a[i - 1] = a[j];
         a[j] = x;
     }
-}
+};
 
 /*User Input*/
 
@@ -40,13 +45,13 @@ function cleanInput(id){
 	var inputArray = noDSpace.split(" ");
 
 	return inputArray;
-}
+};
 
 function userOutput(id){
 	var userOutput = cleanInput(id);
 	shuffle(userOutput);
 	return userOutput; 
-}
+};
 
 
 /*
