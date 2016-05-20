@@ -1,3 +1,30 @@
+/*User Input*/
+
+function cleanInput(id){
+	var input = document.getElementById(id).value;
+	if (input != "" && input != undefined) { 
+	var noCommas = input.replace( /,/g , ' ' );
+	var noDSpace = noCommas.replace( /\s\s+/g, ' ' );
+	var inputArray = noDSpace.split(" ");
+	return inputArray;
+	}
+	
+};
+
+function getUserInput(id){
+	var userInput = cleanInput(id);
+	if (userInput != undefined) {
+		words[id] = userInput;
+	}
+};
+
+function getAllUserInput(){
+	getUserInput("oneSyl");
+	getUserInput("twoSyl");
+	getUserInput("threeSyl");
+	getUserInput("fourSyl");
+	getUserInput("fiveSyl");
+}
 
 var words = {
 	oneSyl: [ "Everything", "Everybody", "Nothing", "Someone" ],
@@ -29,6 +56,7 @@ function populateAll(){
 }
 
 function generateHaiku() {
+	getAllUserInput();
 	shuffleAll();
 	populateAll();
 }
@@ -51,22 +79,6 @@ function shuffle(a) {
     }
 };
 
-/*User Input*/
-
-function cleanInput(id){
-	var input = document.getElementById(id);
-	var noCommas = input.replace( /,/g , ' ' );
-	var noDSpace = noCommas.replace( /\s\s+/g, ' ' );
-	var inputArray = noDSpace.split(" ");
-
-	return inputArray;
-};
-
-function userOutput(id){
-	var userOutput = cleanInput(id);
-	shuffle(userOutput);
-	return userOutput; 
-};
 
 
 /*
