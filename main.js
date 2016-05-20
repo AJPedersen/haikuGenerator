@@ -1,29 +1,44 @@
 
-var oneSyl = [ "Everything", "Everybody", "Nothing", "Someone" ];
-var twoSyl = [ "Orange", "Rough", "Smooth", "Awesome" ];
-var threeSyl = [ "Runs", "Touches", "Eats", "Spins" ];
-var fourSyl = [ "Good", "New", "Different", "Young" ];
-var fiveSyl = [ "Good", "New", "Different", "Young" ];
- 
-var oneSylRan = shuffle(oneSyl);
-var twoSylRan = shuffle(twoSyl);
-var threeSylRan = shuffle(threeSyl);
-var fourSylRan = shuffle(fourSyl);
-var fiveSylRan = shuffle(fiveSyl);
-
-shuffler = shuffleSylBank("onesyl", "twosyl", "threesyl", "foursyl", "fivesyl");
-
-function shuffleSylBank() {
-	var i;
-document.getElementById(i).innerHTML = shuffle(i);
-
-return shuffleSylBank;
+var words = {
+	oneSyl: [ "Everything", "Everybody", "Nothing", "Someone" ],
+	twoSyl: [ "Orange", "Rough", "Smooth", "Awesome" ],
+    threeSyl: [ "Runs", "Touches", "Eats", "Spins" ],
+    fourSyl: [ "Good", "New", "Different", "Young" ],
+    fiveSyl: [ "Good", "New", "Different", "Young" ]
 };
+ 
+function populate(target){
+	// html elements where words need to go
+	var targets = document.getElementsByClassName(target+"Out");
+	// words
+	var sylArray = words[target];
+	// put words into html
+	for (var i = 0; i < targets.length; i++) {
 
-function shuffleSylBank(sylArr){
-    for(var i = 0; i < sylArr.length; i++){
-        document.getElementById(i).innerHTML = shuffle(i);
-    }
+		targets[i].innerHTML = sylArray[i];
+	
+	}
+}
+
+function populateAll(){
+	populate("oneSyl"); 
+	populate("twoSyl"); 
+	populate("threeSyl"); 
+	populate("fourSyl"); 
+	populate("fiveSyl"); 
+}
+
+function generateHaiku() {
+	shuffleAll();
+	populateAll();
+}
+
+function shuffleAll() {
+	oneSyl = shuffle(words.oneSyl);
+	twoSyl = shuffle(words.twoSyl);
+	threeSyl = shuffle(words.threeSyl);
+	fourSyl = shuffle(words.fourSyl);
+	fiveSyl = shuffle(words.fiveSyl);
 }
 
 function shuffle(a) {

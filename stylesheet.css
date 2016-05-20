@@ -73,7 +73,7 @@ p {
 	background: 4px solid rgba(21, 21, 21,.1);
 }
 
-#haiku {
+.haiku {
   	font-size: 1.5em;
   	color: white;
   }
