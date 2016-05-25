@@ -1,6 +1,7 @@
 body {
 	background-color: rgba(43, 79, 107, 1);
 	font-family: 'Open Sans', sans-serif;
+	
 }
 
 
@@ -74,6 +75,20 @@ p {
 }
 
 .haiku {
-  	font-size: 1.5em;
+  	font-size: 3em;
   	color: white;
   }
+
+form {
+	position: fixed;
+	float: left;
+	margin: 5% 15%;
+	
+}
+.haikuCont {
+	float: right;
+	margin: 5% 15%;
+	padding: 0 5%;
+	border: 2px solid black;
+	border-radius: 5px;	
+}

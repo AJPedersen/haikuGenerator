@@ -10,9 +10,8 @@
 <body onload="generateHaiku();">
 
 	<h1>Haikurazy generator</h1>
-	<p>Like haiku? Generate one here! </p>
 
-	<form>
+<form>
 
 		<input class="inputbox" id="oneSyl" type="text" name="nouns" placeholder="one syllable words here!">
 		<input class="inputbox" id="twoSyl" type="text" name="adjectives" placeholder="two syllable words here!">
@@ -21,26 +20,13 @@
 		<input class = "inputbox" id="fiveSyl" type = "text" name = "verbs" placeholder = "five syllable words here!">
 		<input class = "submit" type ="button" onclick="generateHaiku();" value = "GO HAIKURAZY!">
 
-	</form>
+</form>
 
-
+<div class="haikuCont">
 	<p class="haiku"><span class = "threeSylOut"></span> I <span class = "oneSylOut"></span></p>
 	<p class="haiku">with <span class = "threeSylOut"></span>, alas,</p>
 	<p class="haiku"><span class = "oneSylOut"></span> like a <span class = "twoSylOut"></span>.</p>
-	
-
-	<!-- 
-	<p>
-	<br>
-	Haikus are easy
-	<br>
-	But sometimes they don't make sense
-	<br>
-	Refrigerator
-	</p>
-	-->
-
-
+</div>
 
 
 </body>

@@ -1,23 +1,55 @@
-/*User Input*/
+// Preset word bank.
+var wordBank = {
+	oneSyl: [ "Heart", "Love", "On", "Near" ],
+	twoSyl: [ "Purple", "Pizza", "Silver", "Princess" ],
+    threeSyl: [ "Orange", "Banana", "Animal", "Piano" ],
+    fourSyl: [ "America", "Beautiful", "Irregular", "Intermittent" ],
+    fiveSyl: [ "Alliteration", "Personality", "Abominable", "California" ]
+};
 
+// Empty words arrays, populates with user input then from wordBank.
+var words = {
+	oneSyl: [  ],
+	twoSyl: [  ],
+    threeSyl: [  ],
+    fourSyl: [  ],
+    fiveSyl: [  ]
+};
+
+// replace commas and doubel spaces with a single space
 function cleanInput(id){
 	var input = document.getElementById(id).value;
 	if (input != "" && input != undefined) { 
-	var noCommas = input.replace( /,/g , ' ' );
-	var noDSpace = noCommas.replace( /\s\s+/g, ' ' );
-	var inputArray = noDSpace.split(" ");
-	return inputArray;
+		var noCommas = input.replace( /,/g , ' ' );
+		var noDSpace = noCommas.replace( /\s\s+/g, ' ' );
+		var inputArray = noDSpace.split(" ");
+		return inputArray;
 	}
 	
 };
 
+// If there is user input and it is greater than one word then run it through cleanInput
 function getUserInput(id){
 	var userInput = cleanInput(id);
-	if (userInput != undefined) {
+	if (userInput != undefined && userInput.length > 0) {
 		words[id] = userInput;
+	}
+	if (words[id].length < 2) {
+		bankToWords(id)
 	}
 };
 
+// If < 2 words in array, push words into words.
+function bankToWords(id) {
+	var shuffledBank = shuffle(wordBank[id]);
+	var i = 0;
+	while (words[id].length < 2) {
+			words[id].push(wordBank[id][i])
+			i++
+		}
+}
+
+// Runs syl 1-5 through getUserInput
 function getAllUserInput(){
 	getUserInput("oneSyl");
 	getUserInput("twoSyl");
@@ -26,14 +58,7 @@ function getAllUserInput(){
 	getUserInput("fiveSyl");
 }
 
-var words = {
-	oneSyl: [ "Everything", "Everybody", "Nothing", "Someone" ],
-	twoSyl: [ "Orange", "Rough", "Smooth", "Awesome" ],
-    threeSyl: [ "Runs", "Touches", "Eats", "Spins" ],
-    fourSyl: [ "Good", "New", "Different", "Young" ],
-    fiveSyl: [ "Good", "New", "Different", "Young" ]
-};
- 
+// For loop that assigns words to the right syllable target.
 function populate(target){
 	// html elements where words need to go
 	var targets = document.getElementsByClassName(target+"Out");
@@ -47,6 +72,7 @@ function populate(target){
 	}
 }
 
+// Runs syl 1-5 through the populate function.
 function populateAll(){
 	populate("oneSyl"); 
 	populate("twoSyl"); 
@@ -55,12 +81,22 @@ function populateAll(){
 	populate("fiveSyl"); 
 }
 
+// Erases array contents.
+function clearAll() {
+	for (var key in words) {
+		words[key]=[];
+	}
+}
+
+// Executes the main functions to make all the things work.
 function generateHaiku() {
+	clearAll();
 	getAllUserInput();
 	shuffleAll();
 	populateAll();
 }
 
+// Runs syl 1-5 through the shuffle function.
 function shuffleAll() {
 	oneSyl = shuffle(words.oneSyl);
 	twoSyl = shuffle(words.twoSyl);
@@ -69,6 +105,7 @@ function shuffleAll() {
 	fiveSyl = shuffle(words.fiveSyl);
 }
 
+// Shuffles things.
 function shuffle(a) {
     var j, x, i;
     for (i = a.length; i; i -= 1) {
@@ -79,93 +116,3 @@ function shuffle(a) {
     }
 };
 
-
-
-/*
-
-if no user input pull words from word bank, use .getElementById, .innerText to insert text into haiku
-
-if user input (all forms filled out) validate syllables with words api; if # of syllables != correct # then ask user to correct (highlight words in red as soon as typed so user doesnt have to go back and fill out form again?)
-
-if user input validates, pull words from user input
-
-*/
-
-
-
-/* 
-
-A traditional Japanese haiku is a three-line poem with seventeen syllables, written in a 5/7/5 syllable count.
-
-			 Template haikus
-
-			 Follow rules of speech.
-
-
-				    Eve ry thing I touch // (3s pronoun) I (1s verb)
-
-					with ten der ness, a las, // with (3s adjective), alas,
-
-					pricks like a bram ble. // (1s verb) like a (2s noun).
-
-
-			 Trust user to put in correct # of syllables and follow rules of speech/directions. 
-
-			 User input validation using an API? Wordsapi.com
-
-
-HAIKU EXAMPLES:
-
-In the moonlight,
-
-The color and scent of the wisteria
-
-Seems far away.
-
----
-
-Everything I touch
-
-with tenderness, alas,
-
-pricks like a bramble.
-
----
-
-The crow has flown away:
-
-swaying in the evening sun,
-
-a leafless tree.  
-
----
-
-Over-ripe sushi,
-The Master
-Is full of regret.
-
----
-
-I kill an ant
-and realize my three children
-have been watching.
-
----
-
-Space is limited
-In a haiku, so it's hard
-To finish what you
-
---
-
-I see you driving
-Round town with the girl I love
-And I'm like haiku.
-
----
-
-World is vast and wide.
-So much out there to explore.
-Right now, let's eat lunch.
-
- */
